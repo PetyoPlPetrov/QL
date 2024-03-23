@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@quicklux/components": ["libs/quicklux-ui/src/index.ts"],
+      "@quicklux/homemade": ["themes/quicklux-homemade/src/index.ts"],
+      "@quicklux/themes": ["themes/quicklux-green/src/index.ts"],
+      "@quicklux/utils": ["libs/quicklux-utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

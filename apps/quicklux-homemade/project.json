@@ -1,0 +1,9 @@
+{
+  "name": "quicklux-homemade",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/quicklux-homemade/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project quicklux-homemade --web",
+  "targets": {}
+}
