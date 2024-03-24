@@ -5,33 +5,35 @@ The current solution is going to focus on one single aspect from the requirments
 The solution project has the following structure
 
 - apps
+
   - quicklux-greens
   - quicklux-homemade
 
 - libs
-  -- quicklux-ui (tests)
-  --- atoms
-  --- hocs
-  --- molecules
-  --- organisms
-  --- pages
-  --- templates
 
-  -- quicklux-utils (all website features) (tests)
+  - quicklux-ui (tests)
+  - atoms
+  - hocs
+  - molecules
+  - organisms
+  - pages
+  - templates
 
-  -- authentication
-  -- authorization
-  -- checkout
-  -- foodBuilder - UI resuable feature(business logic + Ui)
-  --- context
-  --- hooks
-  -- utils
-  --- useDelayedAPi - wrapper on api handling data,error and loading cases. (tests)
-  --- useStateMachine - eleminate useEffect needs (tests)
+  - quicklux-utils (all website features) (tests)
+
+  - authentication
+  - authorization
+  - checkout
+  - foodBuilder - UI resuable feature(business logic + Ui)
+  - context
+  - hooks
+  - utils
+    - useDelayedAPi - wrapper on api handling data,error and loading cases. (tests)
+    - useStateMachine - eleminate useEffect needs (tests)
 
 - themes (tessts)
-  -- quicklux-green theme
-  -- quicklux-homemde theme
+  - quicklux-green theme
+  - quicklux-homemde theme
 
 # Run the project
 
@@ -41,6 +43,7 @@ The solution project has the following structure
     - npm run tests
 
 # Overview
+
     The app is just a consumer. The UI components (dump and smart) are situated in UI folder.
     The encapluslated busines logic of every feaure is placed  into  quicklux/quicklux-utils/lib/ as folder features.
     Themes designed for all futures websites are placed into quicklux/themes folder
