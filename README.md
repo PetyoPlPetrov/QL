@@ -5,7 +5,6 @@ The current solution is going to focus on one single aspect from the requirments
 The solution project has the following structure
 
 - apps
-
   - quicklux-greens
   - quicklux-homemade
 
@@ -44,12 +43,17 @@ The solution project has the following structure
 
 # Overview
 
-    The app is just a consumer. The UI components (dump and smart) are situated in UI folder.
-    The encapluslated busines logic of every feaure is placed  into  quicklux/quicklux-utils/lib/ as folder features.
-    Themes designed for all futures websites are placed into quicklux/themes folder
-    Functional composition is used to compose mre complex behaviour for
+    The app (every app in quicklux/apps) is just a consumer. The UI components (dump and smart) are situated in UI folder.
+    The encapluslated busines logic of every feaure is placed  into  quicklux/quicklux-utils/lib/ as folder/features.
+    Themes designed for all futures websites are placed into quicklux/themes folder.
+
+    Functional composition is used to compose more complex behaviour for:
     -  autorizarion and authentication - verifyPermissions in utils
     -  FoodBuilder - the loading,error and data cases during its declaration.
     Iversion of control using context for FoodBuilder.
+
     Encapsulating all request flows and giving declarative api using useDelaiedApi.
     StateMachine-like pattern to ensure declarative approach in data flow.
+    
+    NX is used here only as boilerplate generator.
+
