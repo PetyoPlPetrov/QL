@@ -1,18 +1,24 @@
-import { FoodBuilderContext, baseAllowed } from "@quicklux/utils";
-import { FoodBuilder } from "../../organisms";
+import { Canvas, FoodBuilder } from '@quicklux/components';
+import { FoodBuilderContext, verifyPermissions } from '@quicklux/utils';
+import { useMemo } from 'react';
 
 export interface FoodBuilderScreenProps {
-    fetchToppings: () => Promise<any>;
+  fetchToppings: () => Promise<any>;
+  title: string;
 }
 
-export const FoodBuilderScreen = baseAllowed(({ fetchToppings }: FoodBuilderScreenProps) => {
-    return <div className="FoodBuilderScreen">
+export const FoodBuilderScreen = verifyPermissions(
+  ({ fetchToppings, title }: FoodBuilderScreenProps) => {
+    const context = useMemo(() => ({ fetchToppings }), [fetchToppings]);
 
-        <FoodBuilderContext.Provider
-            value={{ fetchToppings }} >
-
-            <FoodBuilder name="Salad Builder!" />
-
-        </FoodBuilderContext.Provider>
-    </div>
-})
+    return (
+      <div className="FoodBuilderScreen">
+        <Canvas>
+          <FoodBuilderContext.Provider value={context}>
+            <FoodBuilder name={title} />
+          </FoodBuilderContext.Provider>
+        </Canvas>
+      </div>
+    );
+  }
+);

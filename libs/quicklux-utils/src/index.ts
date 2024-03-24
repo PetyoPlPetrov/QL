@@ -1,4 +1,3 @@
 export * from './lib/authentication';
-export * from './lib/saladBuilder';
+export * from './lib/foodBuilder';
 export * from './lib/utils';
-

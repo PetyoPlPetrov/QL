@@ -1,12 +1,11 @@
 import { ThemeProps } from '../../../theme';
 /* eslint-disable-next-line */
 
-
 export const lightTheme: ThemeProps = {
   colors: {
     primary: '#A5C34A', // Earthy green
     secondary: '#F2F2F2', // Light gray
-    accent: '#FFD700', // Golden yellow
+    accent: '#96ae4e', // Golden yellow
     text: '#333333', // Dark gray
     success: '#4CAF50', // Green (success)
     warning: '#ffc107', // Yellow (warning)

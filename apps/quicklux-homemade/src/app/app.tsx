@@ -1,42 +1,74 @@
-import styled, { ThemeProvider } from 'styled-components';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
-import { FoodBuilder, Header } from '@quicklux/components';
-import { lightTheme } from '@quicklux/themes';
-import { FoodBuilderContext } from '@quicklux/utils';
-import { Route, Routes } from 'react-router-dom';
-const fetchPizaStuff = () => new Promise((resolve) => {
-  resolve(['cheese', 'tomato', 'mushroom', 'onion', 'pepperoni']);
-});
-const StyledApp = styled.div`
-  // Your style here
-`;
+import {
+  Button,
+  Canvas,
+  FoodBuilderScreen,
+  Header,
+  Panel,
+} from '@quicklux/components';
+import { lightTheme } from '@quicklux/homemade';
+import { useFoodStateMachine, withStateMachine } from '@quicklux/utils';
+
+const fakeAPi = (data: any) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data);
+    }, 1500);
+  });
+
+const fetchPizaStuff = () =>
+  fakeAPi([
+    { id: 1, name: 'Cheese', price: 1 },
+    { id: 2, name: 'Pepperoni', price: 2 },
+  ]);
 
 export function App() {
+  const navigate = useNavigate();
+
+  const { stateStep, goToNextStep } = useFoodStateMachine({
+    ORDER: {
+      ADD_TOPPING: () => {
+        navigate('/order');
+      },
+    },
+  });
   return (
     <ThemeProvider theme={lightTheme}>
-
       <Header title="Quicklux Homemade" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <Routes>
-        <Route
-          path="/page-2"
-          element={
-            <FoodBuilderContext.Provider
-              value={{ fetchToppings: fetchPizaStuff }} >
-
-              <FoodBuilder name="Piza Builder!" />
-
-            </FoodBuilderContext.Provider>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
+      <Panel>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Canvas>
+                <Button
+                  variant="primary"
+                  text="Make pizza"
+                  onClick={() => {
+                    goToNextStep({
+                      type: 'ORDER',
+                      status: 'ADD_TOPPING',
+                    });
+                  }}
+                />
+              </Canvas>
+            }
+          />
+          <Route
+            path="/order"
+            element={
+              <FoodBuilderScreen
+                title="Piza Builder!"
+                fetchToppings={fetchPizaStuff}
+              />
+            }
+          />
+        </Routes>
+      </Panel>
     </ThemeProvider>
   );
 }
 
-export default App;
+export default withStateMachine(App);

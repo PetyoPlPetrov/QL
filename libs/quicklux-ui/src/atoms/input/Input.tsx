@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -15,5 +16,4 @@ export function Input(props: InputProps) {
   );
 }
 
-export default Input;
-
+export default memo(Input);

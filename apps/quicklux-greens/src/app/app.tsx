@@ -1,7 +1,13 @@
-import { Button, FoodBuilder, FoodBuilderScreen, Header } from '@quicklux/components';
+import {
+  Button,
+  Canvas,
+  FoodBuilderScreen,
+  Header,
+  Panel,
+} from '@quicklux/components';
 import { lightTheme } from '@quicklux/themes';
-import { FoodBuilderContext, useFoodStateMachine, withStateMachine } from '@quicklux/utils';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { useFoodStateMachine, withStateMachine } from '@quicklux/utils';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { fetchToppings } from '../utils';
 
@@ -13,44 +19,45 @@ export function App() {
         navigate('/order');
       },
     },
-  })
+  });
 
   //TODO use stateStep to determine the current state (logged user, etc.)
 
   return (
     <ThemeProvider theme={lightTheme}>
       <Header title="Quicklux Green" />
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <Button variant='primary' text='Make salad' onClick={() => {
-          goToNextStep({
-            type: 'ORDER',
-            status: 'ADD_TOPPING'
-          })
-        }} />
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/order"
-          element={
-            <FoodBuilderScreen fetchToppings={fetchToppings} />
-          }
-        />
-      </Routes>
-      {/* END: routes */}
+
+      <Panel>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Canvas>
+                <Button
+                  variant="primary"
+                  text="Make pizza"
+                  onClick={() => {
+                    goToNextStep({
+                      type: 'ORDER',
+                      status: 'ADD_TOPPING',
+                    });
+                  }}
+                />
+              </Canvas>
+            }
+          ></Route>
+
+          <Route
+            path="/order"
+            element={
+              <FoodBuilderScreen
+                title="Salad Builder!"
+                fetchToppings={fetchToppings}
+              />
+            }
+          />
+        </Routes>
+      </Panel>
     </ThemeProvider>
   );
 }
