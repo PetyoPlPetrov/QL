@@ -1,10 +1,8 @@
-import { render } from '@testing-library/react';
 
-import Themes from './themes';
+import { lightTheme } from './themes';
 
 describe('Themes', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Themes />);
-    expect(baseElement).toBeTruthy();
+    expect(lightTheme).toBeTruthy();
   });
 });

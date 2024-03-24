@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve quicklux-greens"
+    "start-quicklux-greens": "nx serve quicklux-greens",
+    "start-quicklux-homemade": "nx serve quicklux-homemade",
+    "test": "nx  run-many -t test"
   },
   "private": true,
   "dependencies": {
+    "jest": "^29.7.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
@@ -20,6 +23,7 @@
     "@nx/cypress": "18.1.2",
     "@nx/eslint": "18.1.2",
     "@nx/eslint-plugin": "18.1.2",
+    "@nx/jest": "^18.1.2",
     "@nx/js": "18.1.2",
     "@nx/react": "18.1.2",
     "@nx/vite": "18.1.2",
@@ -30,6 +34,7 @@
     "@swc/core": "~1.3.85",
     "@swc/helpers": "~0.5.2",
     "@testing-library/react": "14.0.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
     "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",

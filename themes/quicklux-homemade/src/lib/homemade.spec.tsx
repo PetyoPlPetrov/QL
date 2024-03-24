@@ -1,10 +1,8 @@
-import { render } from '@testing-library/react';
 
-import Homemade from './homemade';
+import { lightTheme } from './homemade';
 
-describe('Homemade', () => {
+describe('Themes', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Homemade />);
-    expect(baseElement).toBeTruthy();
+    expect(lightTheme).toBeTruthy();
   });
 });

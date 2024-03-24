@@ -20,6 +20,6 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
-    expect(getByText(/Welcome quicklux-greens/gi)).toBeTruthy();
+    expect(getByText(/Quicklux Green/gi)).toBeTruthy();
   });
 });

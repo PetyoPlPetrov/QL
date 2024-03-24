@@ -1,10 +1,14 @@
 import { render } from '@testing-library/react';
 
-import Components from './Input';
+import { lightTheme } from '@quicklux/themes';
+import { ThemeProvider } from 'styled-components';
+import Input from './Input';
 
 describe('Components', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Components />);
+    const { baseElement } = render(<ThemeProvider theme={lightTheme}>
+      <Input />
+    </ThemeProvider>);
     expect(baseElement).toBeTruthy();
   });
 });

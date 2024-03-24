@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /* eslint-disable-next-line */
 interface BaseButtonProps {
   variant: keyof ThemeProps['colors'];
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 export interface ButtonProps extends BaseButtonProps {
   text: string;
