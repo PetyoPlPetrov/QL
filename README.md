@@ -12,24 +12,24 @@ The solution project has the following structure
 - libs
 
   - quicklux-ui (tests)
-  - atoms
-  - hocs
-  - molecules
-  - organisms
-  - pages
-  - templates
+    - atoms
+    - hocs
+    - molecules
+    - organisms
+    - pages
+    - templates
 
   - quicklux-utils (all website features) (tests)
 
-  - authentication
-  - authorization
-  - checkout
-  - foodBuilder - UI resuable feature(business logic + Ui)
-  - context
-  - hooks
-  - utils
-    - useDelayedAPi - wrapper on api handling data,error and loading cases. (tests)
-    - useStateMachine - eleminate useEffect needs (tests)
+    - authentication
+    - authorization
+    - checkout
+    - foodBuilder - UI resuable feature(business logic + Ui)
+    - context
+    - hooks
+    - utils
+        - useDelayedAPi - wrapper on api handling data,error and loading cases. (tests)
+        - useStateMachine - eleminate useEffect needs (tests)
 
 - themes (tessts)
   - quicklux-green theme
