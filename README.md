@@ -54,6 +54,7 @@ The solution project has the following structure
 
     Encapsulating all request flows and giving declarative api using useDelaiedApi.
     StateMachine-like pattern to ensure declarative approach in data flow.
+    Inversion of control for feature creation(FoodGenerator) using React context and container pattern
     
     NX is used here only as boilerplate generator.
 
